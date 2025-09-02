@@ -6,7 +6,7 @@ import os
 ARQUIVO_ENTRADA = "inscritos.xlsx"
 SHEET = "Sheet1"
 ARQUIVO_SAIDA_1 = "emails_parte1.xlsx"
-ARQUIVO_SAIDA_2 = "emails.xlsx"
+ARQUIVO_SAIDA_2 = "emails_parte2.xlsx"
 
 try:
     # Carregar o arquivo Excel

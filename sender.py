@@ -15,13 +15,13 @@ SENHA_APP = "ftkn svrk fsov awrg"
 
 inicio = datetime.datetime.now()
 # Lendo os e-mails dos inscritos
-arquivo_inscritos = r"emails.xlsx"
-if os.path.exists(arquivo_inscritos):
-    df_inscritos = pd.read_excel(arquivo_inscritos, engine="openpyxl")
-    emails = df_inscritos["email"].dropna().tolist()
-else:
-    print("Arquivo de inscritos não encontrado.")
-    emails = []
+emails = []
+for arquivo_inscritos in ["emails_parte1.xlsx", "emails_parte2.xlsx"]:
+    if os.path.exists(arquivo_inscritos):
+        df_inscritos = pd.read_excel(arquivo_inscritos, engine="openpyxl")
+        emails += df_inscritos["email"].dropna().tolist()
+    else:
+        print(f"Arquivo de inscritos não encontrado: {arquivo_inscritos}")
 
 # Encontrar o último arquivo HTML gerado
 arquivos_html = [f for f in os.listdir() if f.startswith("noticias_") and f.endswith(".html")]

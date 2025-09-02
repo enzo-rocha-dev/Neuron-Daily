@@ -19,12 +19,29 @@ Fundado em 2024 por ex-diretor de Projetos da Neuron DS&AI, o Neuron Daily ofere
 ## Visão Geral
 Este repositório reúne scripts Python para automatizar processos de dados, marketing e geração de conteúdo. Cada script tem uma função específica e pode ser executado individualmente.
 
+
 ## Scripts do Projeto
 
-- **extrair.py**: Extrai dados de fontes diversas (arquivos, APIs, bancos de dados). Ideal para coletar informações brutas.
+- **extrair.py**: Extrai e-mails de um arquivo Excel (`inscritos.xlsx`) na aba `Sheet1`, remove duplicados e salva os resultados em dois arquivos: `emails_parte1.xlsx` e `emails.xlsx`. 
+  
+	**Como usar:**
+	1. Certifique-se de que o arquivo `inscritos.xlsx` está na mesma pasta do script.
+	2. Execute o script. Os e-mails serão extraídos da coluna "Email" e divididos em dois arquivos para facilitar o envio.
+	3. Os arquivos gerados (`emails_parte1.xlsx` e `emails_parte2.xlsx`) serão usados no envio dos boletins.
+
+- **sender.py**: Envia o boletim diário para os e-mails listados em `emails.xlsx`.
+  
+	**Como usar:**
+	1. Certifique-se de que o arquivo `emails.xlsx` está presente na pasta.
+	2. Gere o arquivo HTML da newsletter (deve começar com `noticias_` e terminar com `.html`).
+	3. Execute o script. Ele irá:
+		 - Ler os e-mails do arquivo.
+		 - Encontrar o arquivo HTML mais recente.
+		 - Enviar o boletim para todos os e-mails usando a conta de marketing configurada no script.
+	4. O script mostra no terminal o status do envio e o tempo total gasto.
+
 - **scraping.py**: Realiza scraping de páginas web, automatizando a coleta de dados públicos online.
 - **script.py**: Script utilitário ou principal, podendo centralizar funções comuns ou testes.
-- **sender.py**: Automatiza o envio dos boletins diarios (e-mails, mensagens, etc.).
 - **summarizer.py**: Sumariza textos extensos, gerando versões mais curtas e objetivas.
 - **writer.py**: Gera ou escreve textos automaticamente, útil para criação de conteúdo.
 
